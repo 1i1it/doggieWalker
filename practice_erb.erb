@@ -1,0 +1,22 @@
+<%
+	num = 120
+%>
+
+<div>
+	(Internal variable) - Num is <%= num %>
+</div>
+
+<div>
+	Variable from Locals - country is <%= country %>
+</div>
+
+
+<div style='border: 1px solid red'>
+<% ['f','ba','baz'].each do |name| %> 
+	<% if name.length > 1 %>
+	<div style='border: 1px solid green; margin: 10px'> Variable from loop: <%= name.length %> </div>
+	<% else %>
+	<div style='border: 1px solid blue; margin: 10px'> <%= name %> is short. </div>
+	<% end %>
+<% end %>
+</div>
