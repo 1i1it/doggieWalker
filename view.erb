@@ -11,8 +11,14 @@
   <section class='rounded-corners'>
     <h3>Add new item</h3>
     <form method='post' action='/add'>
-      <input type='text' name='task_name' placeholder='Task name?'>
-      <textarea name='task_description' placeholder='Task description'></textarea>
+      <p><select name="owner_name">
+      <option value="Sella">Sella</option>
+      <option value="Liliya">Liliya</option>
+      <option value="Bubba">Bubba</option>
+    </select><p>
+      <!-- <input type='text' name='owner_name' placeholder='Owner'> -->
+      <input type='text' name='task_name' placeholder='Task name'>
+      <input name='task_description' placeholder='Task description'>
       <button type='submit' class='btn'>Add item</button>
     </form>
   </section>

@@ -1,12 +1,35 @@
 <% if tasks.any? %>
-  <section>
-  <h3>Tasks</h3>
+<section>
+  <h3>Tasks (<%= tasks.count %>)</h3> 
   <% tasks.to_a.each do |task| %>
-    <article class='rounded-corners' style='border: 1px solid lightblue; padding: 20px; margin-bottom: 10px'>
-      <b><%= task['name'] %></b>
+    <% if task['completed'] == true %>
+      <article class='rounded-corners green-background' style='padding: 20px; margin-bottom: 10px'>
+    <% else%>
+    <article class='rounded-corners' style='padding: 20px; margin-bottom: 10px'>
+    <% end%>
+
+      <b><%= task['owner'] %></b>
+      <b><p><%= task['name'] %><p></b>
       <p><%= task['description'] %></p>
-      <small><a href="/delete?task_name=<%= task['name'] %>" style='float: right'>(delete)</a></small>
+      <small><a href="/delete?task_id=<%= task['_id'] %>" style='float: right'>(delete)</a></small>
+
+      <% if task['completed'] == true %>
+        <small><a href="/mark_incomplete?task_id=<%= task['_id'] %>" style='float: left'>(Mark as incomplete)</a></small>
+      <% else%>
+        <small><a href="/mark_completed?task_id=<%= task['_id'] %>" style='float: left'>(Mark as completed)</a></small>
+      <% end%>
     </article>
-  <% end %>
+
+    <!-- <button type='button' class='btn'><a href="/delete_all">Remove all </a></button> -->
+
+
+    <% end %>
+    <a href="/delete_all"><button type='button' class='btn'> Remove all</button></a>
   </section>
-<% end %>
+  <% else%>
+  <section>
+    <article class='rounded-corners' style='border: 1px solid lightblue; padding: 20px; margin-bottom: 10px'>
+      <b>No Tasks</b>
+    </article>
+  </section>
+  <% end %>
