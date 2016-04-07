@@ -3,7 +3,7 @@ Tasks
 2. Add  'mark incomplete' 
 3. Always show only either 'mark as complete' or 'mark incomplete' (as appropriate)
 4. Create GitHub account, push code to GitHub repo.
-4.1. Make some changes, make a commit, push those changes to GitHub.
+4.1. Make some changes, make a commit, push those changes to GitHub. Done
 5. Dropdown of owners - instead of hard-coding the values, make them read from a Ruby variable (owners = ['Sella', ...])
 6. Move the Ruby variable defining the list of owners to a new file (app_config.rb). Remember to 'require' that file in the app.
 7. Create a "user" page: add a "get /:user" route that will render a "user.erb" file. In that file, first just show the user's name, then use "$tasks.find({name: params[:username]}).to_a" to get the tasks that belong to that user, then use "erb :tasks_list" to show just HIS tasks. 

@@ -10,11 +10,12 @@
   
   <section class='rounded-corners'>
     <h3>Add new item</h3>
+    
     <form method='post' action='/add'>
       <p><select name="owner_name">
-      <option value="Sella">Sella</option>
-      <option value="Liliya">Liliya</option>
-      <option value="Bubba">Bubba</option>
+      <% list_of_owners.each do |owner_name| %>
+      <option value= <%= owner_name%>><%= owner_name%></option>
+      <% end%>
     </select><p>
       <!-- <input type='text' name='owner_name' placeholder='Owner'> -->
       <input type='text' name='task_name' placeholder='Task name'>

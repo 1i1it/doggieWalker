@@ -5,7 +5,11 @@ require './setup'
 #functions
 def view_tasks(tasks = nil)  
   #creates htlm file
-  erb(:view, {locals: {tasks: $tasks.find.to_a}})
+  erb(:view, {locals: {tasks: $tasks.find.to_a, list_of_owners:["Sella", "Liliya", "Bubba"]}})
+end
+
+get '/practice_erb' do
+  erb(:practice_erb, locals: {country: "Israel"})
 end
 
 get '/' do
