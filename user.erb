@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="/style.css">
+  </head>
+<body class='body-style'>
+
+  <section>
+    <h1 id="welcomeMsg"> Welcome to  <%= params[:owner_name] %>'s tasks</h1>
+  </section>
+
+  
+  <%= erb :tasks_list, locals: {tasks: tasks} %>
+  
+  </body>
+</html>
