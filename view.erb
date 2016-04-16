@@ -4,7 +4,28 @@
   </head>
 <body class='body-style'>
 
-  <section>
+<section>
+    <span> 
+    <% if !current_user %> 
+      <button type='submit'> <a href="/sign_up"> Sign up </a> </button> 
+        <!-- in a form, the 'action' is the route to send the form to. -->
+        <form action='login' method='get'>
+          <input type='text' name='username' placeholder='username'>
+          <input type='text' name='password' placeholder='password'>
+          <button type='submit'>Login</button> 
+        </form>        
+      </p>
+    </span>
+    <% else %>
+      <span> current user: <%= current_user() %> </span>
+      <span style='margin: 10px; border: 1px solid red'> <a href="/log_out"> Log out </span> 
+      <p> 
+    <% end %>
+
+
+</section>
+
+  <section>    
     <h1 id="welcomeMsg"> Welcome to <a href="/">Sinatra TODO List Manager.</a></h1>
   </section>
   
@@ -20,6 +41,7 @@
       <!-- <input type='text' name='owner_name' placeholder='Owner'> -->
       <input type='text' name='task_name' placeholder='Task name'>
       <input name='task_description' placeholder='Task description'>
+      <input name='task_image' placeholder='Upload image'>
       <button type='submit' class='btn'>Add item</button>
     </form>
   </section>

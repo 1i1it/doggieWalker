@@ -1,6 +1,7 @@
 <% if tasks.any? %>
 <section>
-  <h3>Tasks (<%= tasks.count %>)</h3> 
+
+  <h3>Tasks (<%= tasks.count %>)  Completed(<%= $tasks.find(completed: true).count %>)</h3> 
   <% tasks.to_a.each do |task| %>
     <% if task['completed'] == true %>
       <article class='rounded-corners green-background' style='padding: 20px; margin-bottom: 10px'>
@@ -11,6 +12,10 @@
       <b><%= task['owner'] %></b>
       <b><p><%= task['name'] %><p></b>
       <p><%= task['description'] %></p>
+
+      <p><img src= <%= task['image'] %> alt="Task image" style="width:304px;height:228px;"></p>
+
+
       <small><a href="/delete?task_id=<%= task['_id'] %>" style='float: right'>(delete)</a></small>
 
       <% if task['completed'] == true %>
