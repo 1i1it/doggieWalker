@@ -4,8 +4,6 @@ GEM
     backports (3.6.4)
     bond (0.5.1)
     bson (1.12.0)
-    bson_ext (1.12.0)
-      bson (~> 1.12.0)
     byebug (3.5.1)
       columnize (~> 0.8)
       debugger-linecache (~> 1.2)
@@ -21,6 +19,11 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry (0.10.1-x64-mingw32)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+      win32console (~> 1.3)
     pry-byebug (2.0.0)
       byebug (~> 3.4)
       pry (~> 0.10)
@@ -57,12 +60,13 @@ GEM
       ripl-multi_line (>= 0.2.4)
       ripl-rack (>= 0.2.0)
       sinatra (>= 1.2.1)
+    win32console (1.3.2)
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
-  bson_ext
   mongo (= 1.12.0)
   pry-byebug
   sinatra
@@ -71,4 +75,4 @@ DEPENDENCIES
   tux
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

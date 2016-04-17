@@ -338,8 +338,8 @@ In the file view.erb, add the following snippet just before the closing `</head>
   }  
 </script>
 
-````
 
+````
 This defines a JavaScript function that is available in the HTML page. Now let's add a button to enable invoking it. 
 
 After the `<h1>`, within the first `<section>`, add the following: `<button onclick='changeTitle()'>Change Title</button>`. Now try running the page and changing the title a few times. Go over the code we entered and make sure you understand exactly what it does. To test yourself, remove the button and the function and add them again manually (without copying them).

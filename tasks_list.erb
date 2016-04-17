@@ -13,10 +13,12 @@
       <b><p><%= task['name'] %><p></b>
       <p><%= task['description'] %></p>
 
-      <p><img src= <%= task['image'] %> alt="Task image" style="width:304px;height:228px;"></p>
+      <p><img src='<%= task['image'] %>' alt="Task image missing" style="width:304px;height:228px;"></p>
 
 
       <small><a href="/delete?task_id=<%= task['_id'] %>" style='float: right'>(delete)</a></small>
+
+      <small><a href="/add_like?task_id=<%= task['_id'] %>" style='float: right'>Like (<%= task['likes']%>)</a></small>
 
       <% if task['completed'] == true %>
         <small><a href="/mark_incomplete?task_id=<%= task['_id'] %>" style='float: left'>(Mark as incomplete)</a></small>

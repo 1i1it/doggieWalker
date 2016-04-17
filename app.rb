@@ -3,6 +3,34 @@ Bundler.require
 require './setup'
 require './app_config'
 enable :sessions
+=begin
+1. display next to the 'delete' button, a number of 'likes' each task has received 
+(by default, show 0 if there are no likes).
+
+2. put a 'add like' button next to the number that will call the route for  
+'/add_like?task_id=...' which will get that task, find how many likes it has,
+ add one, and then update the task with the new number. 
+=end
+
+get '/add_like' do
+  #get task
+  task = $tasks.find({_id: BSON::ObjectId(params[:task_id])}).first
+  #check likes
+  likes = task["likes"]
+  # add one
+  likes += 1  
+  $tasks.update({_id: BSON::ObjectId(params[:task_id])}, { "$set" => { likes: likes }}) 
+  view_tasks
+end
+
+
+def update_tasks()
+
+  $tasks.find.to_a.each do |task_hash|
+  $tasks.update({name:task_hash['name']}, 
+    { "$set" => { length: task_hash['name'].length }}) 
+  end
+end
 
 def list_of_users_orig()
   users_array = []  
@@ -91,7 +119,7 @@ end
 post '/add' do
    # $tasks is the database
   $tasks.insert({owner: params[:owner_name], name: params[:task_name], 
-    description: params[:task_description], image: params[:task_image]})  
+    description: params[:task_description], image: params[:task_image], likes: 0})  
   view_tasks
   redirect back
 end

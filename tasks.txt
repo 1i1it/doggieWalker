@@ -8,10 +8,7 @@ Tasks
 6. Move the Ruby variable defining the list of owners to a new file (app_config.rb). Remember to 'require' that file in the app.
 7. Create a "user" page: add a get "/:user" route that will render a "user.erb" file. In that file, first just show the user's name, then use "$tasks.find({name: params[:username]}).to_a" to get the tasks that belong to that user, then use "erb :tasks_list" to show just HIS tasks. 
 10. Sign Up: create a 'sign_up' page where one can create a user (similarly to creating a task).
-
-
 8. In 'add task' form, add another text field for a URL of an image (for a task) and store that url with each task, and display it in the list of tasks.
-
 9. When displaying the number of tasks (Tasks (1)), change it to also display how many Tasks have been completed. "(Tasks (total 2, completed: 1))". You can do this by running "$tasks.find(criteria).count" where criteria a hash specifying 'completed' to be true.
 11. Populate the dropdown of 'owners' from the list of existing users.
 
@@ -23,3 +20,6 @@ Tasks
     that username and password, add the username to the session (effectively 
     signing that user in), and redirect home. 
 =end
+
+12. create a function that updates a task, by adding a 'name_length' field with the number of letters in the name.
+13. write a ruby script that goes over the tasks and for each one, updates the 'name_length' parameter. 
